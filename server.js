@@ -8,7 +8,7 @@ const PORT = 5000;
 
 // ✅ MySQL connection
 const pool = mysql.createPool({
-  host: "50.19.52.6",     // or your RDS/private IP if using RDS
+  host: "localhost",     // or your RDS/private IP if using RDS
   user: "asad",
   password: "Password@12345",
   database: "mydb",
