@@ -1,17 +1,18 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mysql = require("mysql2/promise"); // ✅ promise-based client
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 // ✅ MySQL connection
 const pool = mysql.createPool({
-  host: "localhost",     // or your RDS/private IP if using RDS
-  user: "asad",
-  password: "Password@12345",
-  database: "mydb",
+  host: process.env.DB_HOST,     // or your RDS/private IP if using RDS
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
